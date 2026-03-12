@@ -1,0 +1,48 @@
+{
+  "id": "qvy-scw2",
+  "title": "QVY - SCW2",
+  "description": "4-day program (A: Day 1 & 4, B: Day 2, C: Day 3) focusing on glute & full-body strength with accessory core work.",
+  "difficulty": "Intermediate",
+  "tags": ["Strength", "Hypertrophy", "4 Days/Week"],
+  "workouts": [
+    {
+      "name": "Workout A (Day 1 & Day 4)",
+      "exercises": [
+        {"name": "Bodyweight Hip Thrust", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Legs/barbell_hip_thrust.gif", "alternative": {"name": "Glute Bridge", "detail": "3 × 10–20", "image": "exercisepreview/Legs/barbell_glute_bridge.gif"}},
+        {"name": "Single-Arm Cable Row", "detail": "3 sets of 8–12 reps", "image": "exercisepreview/Back/single_arm_twisting_seated_cable_row.gif", "alternative": {"name": "One-Arm DB Row", "detail": "3 × 8–12", "image": "exercisepreview/Back/dumbbell-row.gif"}},
+        {"name": "Bodyweight Step Up / Reverse Lunge Combo", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Legs/bodyweight_step_up_reverse_lunge_combo.gif", "alternative": {"name": "Reverse Lunge", "detail": "3 × 10–20", "image": "exercisepreview/Legs/dumbbell_lunge.gif"}},
+        {"name": "Barbell Bench Press", "detail": "3 sets of 8–12 reps", "image": "exercisepreview/Chest/barbell_bench_press.gif", "alternative": {"name": "Flat Dumbbell Press", "detail": "3 × 8–12", "image": "exercisepreview/Chest/dumbbell_press.gif"}},
+        {"name": "Barbell Romanian Deadlift", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Legs/barbell_romanian_deadlift.gif", "alternative": {"name": "Dumbbell RDL", "detail": "3 × 10–20", "image": "exercisepreview/Legs/dumbbell_romanian_deadlift.gif"}},
+        {"name": "Side Lying Abduction", "detail": "1 set of 15–30 reps (each side)", "image": "exercisepreview/Legs/side_lying_abduction.webp", "alternative": {"name": "Clamshell", "detail": "1 × 15–30 (each side)", "image": "exercisepreview/Legs/side_lying_clam.gif"}},
+        {"name": "Feet Elevated Plank", "detail": "1 set of 20–60 seconds", "image": "exercisepreview/Core/plank.gif", "alternative": {"name": "Regular Plank", "detail": "1 × 20–60s", "image": "exercisepreview/Core/rkc_plank.gif"}},
+        {"name": "Side Plank", "detail": "1 set of 20–60 seconds (each side)", "image": "exercisepreview/Core/side_plank.gif", "alternative": {"name": "Dead Bug", "detail": "1 × 20–60s", "image": "exercisepreview/Core/roman_chair_leg_raise.gif"}}
+      ]
+    },
+    {
+      "name": "Workout B (Day 2)",
+      "exercises": [
+        {"name": "Bodyweight Single-Leg Glute Bridge", "detail": "3 sets of 10–20 reps (each side)", "image": "exercisepreview/Legs/single_leg_glute_bridge.gif", "alternative": {"name": "Banded Glute Bridge", "detail": "3 × 10–20", "image": "exercisepreview/Legs/barbell_glute_bridge.gif"}},
+        {"name": "Underhand Grip Pulldown", "detail": "3 sets of 3 reps", "image": "exercisepreview/Back/reverse_grip_lat_pulldown.webp", "alternative": {"name": "Underhand Pulldown", "detail": "3 × 3", "image": "exercisepreview/Back/close_grip_lat_pulldown.gif"}},
+        {"name": "Bodyweight Walking Lunge", "detail": "3 sets of 10–20 reps (20–40 steps total)", "image": "exercisepreview/Legs/dumbbell_lunge.gif", "alternative": {"name": "Stationary Lunge", "detail": "3 × 10–20", "image": "exercisepreview/Legs/db_step_up.gif"}},
+        {"name": "Dumbbell Military Press", "detail": "3 sets of 8–12 reps", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif", "alternative": {"name": "Seated DB Press", "detail": "3 × 8–12", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif"}},
+        {"name": "45-Degree Hyperextension", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Back/weighted_back_extension.gif", "alternative": {"name": "Back Extension", "detail": "3 × 10–20", "image": "exercisepreview/Back/weighted_back_extension.gif"}},
+        {"name": "Side Lying Clam", "detail": "1 set of 15–30 reps (each side)", "image": "exercisepreview/Legs/side_lying_clam.gif", "alternative": {"name": "Side Lying Abduction", "detail": "1 × 15–30 (each side)", "image": "exercisepreview/Legs/side_lying_abduction.webp"}},
+        {"name": "Crunch", "detail": "1 set of 15–30 reps", "image": "exercisepreview/Core/crunch.gif", "alternative": {"name": "Crunch", "detail": "1 × 15-30", "image": "exercisepreview/Core/crunch.gif"}},
+        {"name": "Side Crunch", "detail": "1 set of 15–30 reps", "image": "exercisepreview/Core/side_crunch.gif", "alternative": {"name": "Side Crunch", "detail": "1 × 15-30", "image": "exercisepreview/Core/side_crunch.gif"}}
+      ]
+    },
+    {
+      "name": "Workout C (Day 3)",
+      "exercises": [
+        {"name": "Bodyweight Hip Thrust (Pause Rep Method)", "detail": "3 sets of 10–20 reps (3 sec pause at top)", "image": "exercisepreview/Legs/barbell_hip_thrust.gif", "alternative": {"name": "Paused Glute Bridge", "detail": "3 × 10–20", "image": "exercisepreview/Legs/barbell_glute_bridge.gif"}},
+        {"name": "Dumbbell Bent Over Row", "detail": "3 sets of 8–12 reps", "image": "exercisepreview/Back/dumbbell_row.gif", "alternative": {"name": "Ring Row", "detail": "3 × 8–12", "image": "exercisepreview/Back/dumbbell_bent_over_reverse_row.gif"}},
+        {"name": "Goblet Squat", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Legs/goblet_squat.gif", "alternative": {"name": "Front Squat", "detail": "3 × 10–20", "image": "exercisepreview/Legs/barbell_box_squat.gif"}},
+        {"name": "Barbell Close Grip Bench Press", "detail": "3 sets of 8–12 reps", "image": "exercisepreview/Chest/barbell_close_grip_bench_press.gif", "alternative": {"name": "Close-Grip DB Press", "detail": "3 × 8–12", "image": "exercisepreview/Chest/close_grip_dumbbell_press.gif"}},
+        {"name": "Russian Kettlebell Swing", "detail": "3 sets of 10–20 reps", "image": "exercisepreview/Legs/russian_kettlebell_swing.webp", "alternative": {"name": "Hip Thrust", "detail": "3 × 10–20", "image": "exercisepreview/Legs/barbell_hip_thrust.gif"}},
+        {"name": "X-Band Walk (Moderate Tension)", "detail": "1 set of 15–30 steps (each side)", "image": "exercisepreview/Legs/x_band_walk.gif", "alternative": {"name": "Banded Lateral Walk", "detail": "1 × 15–30 (each side)", "image": "exercisepreview/Legs/resistance_band_lateral_walk.gif"}},
+        {"name": "Straight-Leg Sit-Up", "detail": "1 set of 15–30 reps", "image": "exercisepreview/Core/plate_weighted_decline_sit_up.gif", "alternative": {"name": "Crunch", "detail": "1 × 15-30", "image": "exercisepreview/Core/crunch.gif"}},
+        {"name": "Cable Twist", "detail": "1 set of 10–20 seconds (each side)", "image": "exercisepreview/Core/cable_twist.gif", "alternative": {"name": "Band Rotary Hold", "detail": "1 × 10–20s (each side)", "image": "exercisepreview/Core/band_rotary_hold.gif"}}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Gains | Routines</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+
+    <nav class="bg-white border-b border-slate-200 px-4 md:px-6 py-5 shadow-sm sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <h1 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight">💪 HOUSE OF GAINS</h1>
+            <span class="text-xs md:text-sm font-medium text-slate-500">Routine Library</span>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        
+        <div class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Select a Program</h2>
+            <p class="text-slate-600 text-sm md:text-base max-w-2xl">Choose a workout split to view the primary movements and alternatives.</p>
+        </div>
+
+        <div id="categories-container" class="space-y-10 pb-12">
+            <!-- Categories will be injected here -->
+        </div>
+        
+    </div>
+
+    <script>
+        async function loadHomepage() {
+            const container = document.getElementById('categories-container');
+
+            // Explicit category groups and the routines that belong to each
+            const categories = [
+                { title: 'Personalized', files: ['routines/qvy-scw2.json'] },
+                { title: 'Templates - From Sources', files: ['routines/ppl3d.json'] },
+                { title: 'Archived', files: [] }
+            ];
+
+            // Helper to render a single routine card HTML
+            function renderCard(data, file) {
+                const tagsHtml = data.tags ? data.tags.map(tag =>
+                    `<span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 mr-2 mb-2 border border-blue-100">${tag}</span>`
+                ).join('') : '';
+
+                return `
+                    <a href="workout.html?file=${file}" class="block group">
+                        <div class="bg-white rounded-2xl p-5 md:p-6 border border-slate-200 shadow-md transition-all duration-300 hover:shadow-lg hover:border-blue-400 hover:-translate-y-2 h-full flex flex-col">
+                            <div class="flex justify-between items-start mb-4 gap-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex-grow">${data.title || 'Untitled'}</h3>
+                                <span class="flex-shrink-0 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2.5 py-1.5 rounded-full border border-blue-100">${data.difficulty || 'N/A'}</span>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">${data.description || ''}</p>
+                            <div class="flex flex-wrap items-center">
+                                ${tagsHtml}
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }
+
+            try {
+                // Load index which now includes category metadata
+                const idxResp = await fetch('routines/routines-index.json');
+                if (!idxResp.ok) throw new Error('Could not load routines index');
+                const entries = await idxResp.json(); // [{file, category}, ...]
+
+                // Group files by category
+                const map = {};
+                entries.forEach(e => {
+                    const cat = e.category || 'Uncategorized';
+                    if (!map[cat]) map[cat] = [];
+                    map[cat].push(e.file);
+                });
+
+                // Ensure common categories exist (order preserved)
+                const ordered = ['Personalized', 'Templates - From Sources', 'Archived'];
+                ordered.forEach(c => { if (!map[c]) map[c] = []; });
+
+                // Render each category in the requested order first, then any remaining
+                function renderSection(title, files) {
+                    const section = document.createElement('section');
+                    section.className = 'scroll-mt-20';
+                    section.innerHTML = `
+                        <div class="mb-4">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">${title}</h2>
+                                <div class="flex-grow h-px bg-gradient-to-r from-blue-300 to-transparent hidden md:block"></div>
+                            </div>
+                            <p class="text-xs font-semibold text-blue-600 uppercase tracking-widest">Collection</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                            <div class="col-span-1" id="cat-${title.replace(/\s+/g,'-').toLowerCase()}"></div>
+                        </div>
+                    `;
+                    container.appendChild(section);
+                    const target = section.querySelector(`#cat-${title.replace(/\s+/g,'-').toLowerCase()}`);
+
+                    if (!files || files.length === 0) {
+                        target.innerHTML = `<p class="text-slate-400 text-sm py-8 text-center col-span-full">No routines in this category.</p>`;
+                        return;
+                    }
+
+                    files.forEach(async (file) => {
+                        try {
+                            const resp = await fetch(file);
+                            if (!resp.ok) {
+                                console.warn(`Missing routine file: ${file}`);
+                                return;
+                            }
+                            const data = await resp.json();
+                            target.innerHTML += renderCard(data, file);
+                        } catch (err) {
+                            console.error(`Error loading ${file}:`, err);
+                        }
+                    });
+                }
+
+                // Render ordered categories first
+                ordered.forEach(title => renderSection(title, map[title]));
+
+                // Render any additional categories not in the ordered list
+                Object.keys(map).forEach(title => {
+                    if (!ordered.includes(title)) renderSection(title, map[title]);
+                });
+
+            } catch (error) {
+                console.error('Error building categories:', error);
+                container.innerHTML = `<p class="text-red-500 font-medium">Failed to build categorized routine view.</p>`;
+            }
+        }
+
+        loadHomepage();
+    </script>
+</body>
+</html>

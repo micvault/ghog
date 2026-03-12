@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Routine</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-4 md:p-12">
+
+    <div class="max-w-3xl mx-auto">
+        
+        <a href="index.html" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-blue-600 mb-6 transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Routines
+        </a>
+
+        <div class="mb-10">
+            <h2 id="routine-name" class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 animate-pulse">Loading Routine...</h2>
+            <p id="routine-desc" class="text-base text-slate-500 mt-2">Fetching your workout data</p>
+            <div id="routine-tags" class="mt-4 flex flex-wrap gap-2"></div>
+        </div>
+
+        <div id="workout-body" class="space-y-6 pb-12">
+            </div>
+        
+    </div>
+
+    <script>
+        // Global toggle function
+        function toggleExercise(index) {
+            const primaryView = document.getElementById(`primary-${index}`);
+            const altView = document.getElementById(`alt-${index}`);
+            const btn = document.getElementById(`btn-${index}`);
+            const indicator = document.getElementById(`indicator-${index}`);
+
+            // If Primary is currently visible, switch to Alternative
+            if (!primaryView.classList.contains('hidden')) {
+                primaryView.classList.add('hidden');
+                altView.classList.remove('hidden');
+                
+                // Update Button UI
+                btn.innerHTML = `<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg> Show Primary`;
+                btn.classList.replace('text-blue-600', 'text-slate-600');
+                btn.classList.replace('bg-blue-50', 'bg-slate-100');
+                
+                // Update Tag Indicator
+                indicator.textContent = "Alternative";
+                indicator.classList.replace('bg-blue-600', 'bg-slate-600');
+            } 
+            // If Alternative is currently visible, switch back to Primary
+            else {
+                primaryView.classList.remove('hidden');
+                altView.classList.add('hidden');
+                
+                // Update Button UI
+                btn.innerHTML = `<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg> View Alternative`;
+                btn.classList.replace('text-slate-600', 'text-blue-600');
+                btn.classList.replace('bg-slate-100', 'bg-blue-50');
+                
+                // Update Tag Indicator
+                indicator.textContent = "Primary";
+                indicator.classList.replace('bg-slate-600', 'bg-blue-600');
+            }
+        }
+
+        async function loadRoutine() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileToLoad = urlParams.get('file');
+
+            if (!fileToLoad) {
+                document.getElementById('routine-name').textContent = "No Routine Selected";
+                document.getElementById('routine-name').classList.remove('animate-pulse');
+                document.getElementById('routine-desc').textContent = "Please go back to the homepage and select a routine.";
+                return;
+            }
+
+            try {
+                const response = await fetch(fileToLoad);
+                if (!response.ok) throw new Error("File not found");
+                
+                const data = await response.json();
+
+                const titleElement = document.getElementById('routine-name');
+                titleElement.textContent = data.title;
+                titleElement.classList.remove('animate-pulse');
+                
+                document.getElementById('routine-desc').textContent = data.description;
+
+                const tagsHtml = data.tags ? data.tags.map(tag => 
+                    `<span class="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 shadow-sm ring-1 ring-inset ring-slate-200">${tag}</span>`
+                ).join('') : '';
+                document.getElementById('routine-tags').innerHTML = tagsHtml;
+
+                const container = document.getElementById('workout-body');
+                container.innerHTML = ''; 
+
+                // Check if routine has workout splits (new format) or flat exercises (legacy format)
+                if (data.workouts && data.workouts.length > 0) {
+                    // NEW FORMAT: Render each workout split separately
+                    let globalIndex = 0;
+                    data.workouts.forEach((workout, workoutIdx) => {
+                        // Workout Split Header
+                        const splitHeader = `
+                            <div class="mb-6 mt-8 first:mt-0">
+                                <h2 class="text-2xl font-extrabold text-slate-900 mb-1">${workout.name}</h2>
+                                <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+                            </div>
+                        `;
+                        container.innerHTML += splitHeader;
+
+                        // Render exercises for this split
+                        workout.exercises.forEach((exercise) => {
+                            const row = {
+                                primary: {
+                                    name: exercise.name,
+                                    detail: exercise.detail,
+                                    image: exercise.image || 'https://via.placeholder.com/150?text=No+Image'
+                                },
+                                alternative: exercise.alternative || {
+                                    name: exercise.name + ' (Alt)',
+                                    detail: exercise.detail,
+                                    image: 'https://via.placeholder.com/150?text=Alt'
+                                }
+                            };
+                            const cardHtml = generateExerciseCard(row, globalIndex);
+                            container.innerHTML += cardHtml;
+                            globalIndex++;
+                        });
+                    });
+                } else if (data.exercises && data.exercises.length > 0) {
+                    // LEGACY FORMAT: Flat exercise list with primary/alternative structure
+                    data.exercises.forEach((row, index) => {
+                        const cardHtml = generateExerciseCard(row, index);
+                        container.innerHTML += cardHtml;
+                    });
+                }
+
+                function generateExerciseCard(row, index) {
+                    return `
+                        <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 overflow-hidden relative transition-all duration-300 hover:shadow-md mb-6">
+                            
+                            <div class="flex justify-between items-center px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+                                <span id="indicator-${index}" class="px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-white bg-blue-600 rounded-md transition-colors">Primary</span>
+                                
+                                <button id="btn-${index}" onclick="toggleExercise(${index})" class="inline-flex items-center text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg hover:opacity-80 transition-all focus:outline-none">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                    View Alternative
+                                </button>
+                            </div>
+
+                            <div id="primary-${index}" class="grid grid-cols-2 items-center p-4 sm:p-6 gap-4 sm:gap-6 relative">
+                                <div class="flex justify-center sm:justify-start pr-4 sm:pr-6">
+                                    <div class="w-28 h-28 sm:w-48 sm:h-48 flex-shrink-0 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center p-3">
+                                        <img src="${row.primary.image}" alt="${row.primary.name}" class="max-w-full max-h-full object-contain mix-blend-multiply" onerror="this.src='https://via.placeholder.com/150?text=No+Image'">
+                                    </div>
+                                </div>
+                                <div class="absolute left-1/2 top-4 bottom-4 w-px -translate-x-1/2 bg-slate-200"></div>
+                                <div class="text-left flex flex-col justify-center pl-4 sm:pl-6 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">${row.primary.name}</h3>
+                                    <div>
+                                        <span class="inline-flex items-center rounded-md bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-700">
+                                            ${row.primary.detail}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="alt-${index}" class="hidden grid grid-cols-2 items-center p-4 sm:p-6 gap-4 sm:gap-6 bg-slate-50/30 relative">
+                                <div class="flex justify-center sm:justify-start pr-4 sm:pr-6">
+                                    <div class="w-28 h-28 sm:w-48 sm:h-48 flex-shrink-0 bg-white rounded-xl border border-slate-200 flex items-center justify-center p-3 shadow-sm">
+                                        <img src="${row.alternative.image}" alt="${row.alternative.name}" class="max-w-full max-h-full object-contain mix-blend-multiply opacity-80" onerror="this.src='https://via.placeholder.com/150?text=No+Image'">
+                                    </div>
+                                </div>
+                                <div class="absolute left-1/2 top-4 bottom-4 w-px -translate-x-1/2 bg-slate-300"></div>
+                                <div class="text-left flex flex-col justify-center pl-4 sm:pl-6 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-700 mb-2">${row.alternative.name}</h3>
+                                    <div>
+                                        <span class="inline-flex items-center rounded-md bg-white border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-600 shadow-sm">
+                                            ${row.alternative.detail}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+                document.getElementById('routine-name').textContent = "Routine Not Found";
+                document.getElementById('routine-name').classList.remove('animate-pulse');
+                document.getElementById('routine-name').classList.add('text-red-500');
+                document.getElementById('routine-desc').textContent = "We couldn't load the requested workout data.";
+            }
+        }
+
+        loadRoutine();
+    </script>
+</body>
+</html>
