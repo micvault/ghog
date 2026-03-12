@@ -43,16 +43,20 @@
 
             // Helper to render a single routine card HTML
             function renderCard(data, file) {
-                const tagsHtml = data.tags ? data.tags.map(tag =>
+                const safeTags = Array.isArray(data.tags) ? data.tags.filter(Boolean) : [];
+                const tagsHtml = safeTags.map(tag =>
                     `<span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 mr-2 mb-2 border border-blue-100">${tag}</span>`
-                ).join('') : '';
+                ).join('');
+
+                const difficultyHtml = `
+                    <span class="flex-shrink-0 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2.5 py-1.5 rounded-full border border-blue-100">${data.difficulty === undefined ? 'undefined' : data.difficulty}</span>`;
 
                 return `
                     <a href="workout.html?file=${file}" class="block group">
                         <div class="bg-white rounded-2xl p-5 md:p-6 border border-slate-200 shadow-md transition-all duration-300 hover:shadow-lg hover:border-blue-400 hover:-translate-y-2 h-full flex flex-col">
                             <div class="flex justify-between items-start mb-4 gap-2">
                                 <h3 class="text-lg md:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex-grow">${data.title || 'Untitled'}</h3>
-                                <span class="flex-shrink-0 text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2.5 py-1.5 rounded-full border border-blue-100">${data.difficulty || 'N/A'}</span>
+                                ${difficultyHtml}
                             </div>
                             <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">${data.description || ''}</p>
                             <div class="flex flex-wrap items-center">
