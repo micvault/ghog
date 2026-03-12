@@ -1,5 +1,4 @@
 [
-  { "file": "routines/qvy-scw2.json", "category": "Personalized" },
-  { "file": "routines/ppl3d.json", "category": "Templates - From Sources" },
-  { "file": "routines/ppl2d.json", "category": "Templates - From Sources" }
+  { "file": "routines/qvy-scw2.json", "category": "Personalized Routines" },
+  { "file": "routines/qvy-scw1.json", "category": "Archived - PRs" }
 ]

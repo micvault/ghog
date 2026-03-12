@@ -1,9 +1,9 @@
 {
   "id": "qvy-scw2",
   "title": "QVY - SCW2",
-  "description": "4-day program (A: Day 1 & 4, B: Day 2, C: Day 3) focusing on glute & full-body strength with accessory core work.",
-  "difficulty": "Intermediate",
-  "tags": ["Strength", "Hypertrophy", "4 Days/Week"],
+  "description": "Modified for QVY - Week 5-8 of SC",
+  "difficulty": "Beginner",
+  "tags": ["Strong Curves", "4 Days/Week"],
   "workouts": [
     {
       "name": "Workout A (Day 1 & Day 4)",

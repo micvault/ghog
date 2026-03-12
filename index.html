@@ -39,12 +39,7 @@
         async function loadHomepage() {
             const container = document.getElementById('categories-container');
 
-            // Explicit category groups and the routines that belong to each
-            const categories = [
-                { title: 'Personalized', files: ['routines/qvy-scw2.json'] },
-                { title: 'Templates - From Sources', files: ['routines/ppl3d.json'] },
-                { title: 'Archived', files: [] }
-            ];
+            // (index is now driven from routines/routines-index.json)
 
             // Helper to render a single routine card HTML
             function renderCard(data, file) {
@@ -73,6 +68,7 @@
                 const idxResp = await fetch('routines/routines-index.json');
                 if (!idxResp.ok) throw new Error('Could not load routines index');
                 const entries = await idxResp.json(); // [{file, category}, ...]
+                if (!Array.isArray(entries)) throw new Error('routines-index.json must be an array of {file,category} objects');
 
                 // Group files by category
                 const map = {};
@@ -83,7 +79,7 @@
                 });
 
                 // Ensure common categories exist (order preserved)
-                const ordered = ['Personalized', 'Templates - From Sources', 'Archived'];
+                const ordered = ['Templates (From Sources)', 'Personalized Routines', 'Archived', 'Archived - PRs'];
                 ordered.forEach(c => { if (!map[c]) map[c] = []; });
 
                 // Render each category in the requested order first, then any remaining
@@ -103,7 +99,8 @@
                         </div>
                     `;
                     container.appendChild(section);
-                    const target = section.querySelector(`#cat-${title.replace(/\s+/g,'-').toLowerCase()}`);
+                    const idName = `cat-${title.replace(/\s+/g,'-').toLowerCase()}`;
+                    const target = section.querySelector(`[id="${idName}"]`);
 
                     if (!files || files.length === 0) {
                         target.innerHTML = `<p class="text-slate-400 text-sm py-8 text-center col-span-full">No routines in this category.</p>`;
@@ -135,7 +132,12 @@
 
             } catch (error) {
                 console.error('Error building categories:', error);
-                container.innerHTML = `<p class="text-red-500 font-medium">Failed to build categorized routine view.</p>`;
+                container.innerHTML = `
+                    <div class="text-red-500 font-medium">
+                        <p>Failed to build categorized routine view.</p>
+                        <pre class="mt-2 text-xs text-red-400">${String(error && error.message ? error.message : error)}</pre>
+                    </div>
+                `;
             }
         }
 
