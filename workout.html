@@ -70,6 +70,32 @@
             }
         }
 
+        // Toggle visibility of an entire workout split (hide all exercises inside wrapper)
+        function toggleWorkout(idx) {
+            const wrapper = document.getElementById(`workout-wrapper-${idx}`);
+            const section = document.getElementById(`workout-section-${idx}`);
+            const btn = document.getElementById(`min-btn-${idx}`);
+            if (!wrapper || !section || !btn) return;
+
+            const isHidden = section.classList.contains('hidden');
+
+            // Toggle the section itself
+            if (isHidden) {
+                section.classList.remove('hidden');
+                btn.innerHTML = `<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg> Minimize`;
+                btn.classList.remove('text-slate-500');
+            } else {
+                section.classList.add('hidden');
+                btn.innerHTML = `<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg> Expand`;
+                btn.classList.add('text-slate-500');
+            }
+
+            // Ensure every exercise card in this wrapper is toggled as well (robustness)
+            wrapper.querySelectorAll('.exercise-card').forEach(el => {
+                if (isHidden) el.classList.remove('hidden'); else el.classList.add('hidden');
+            });
+        }
+
         async function loadRoutine() {
             const urlParams = new URLSearchParams(window.location.search);
             const fileToLoad = urlParams.get('file');
@@ -103,17 +129,27 @@
 
                 // Check if routine has workout splits (new format) or flat exercises (legacy format)
                 if (data.workouts && data.workouts.length > 0) {
-                    // NEW FORMAT: Render each workout split separately
+                    // NEW FORMAT: Render each workout split separately (with collapse wrappers)
                     let globalIndex = 0;
                     data.workouts.forEach((workout, workoutIdx) => {
-                        // Workout Split Header
+                        // Workout Split Header with minimize button and wrapper
                         const splitHeader = `
-                            <div class="mb-6 mt-8 first:mt-0">
-                                <h2 class="text-2xl font-extrabold text-slate-900 mb-1">${workout.name}</h2>
-                                <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+                            <div class="mb-6 mt-8 first:mt-0 flex items-start justify-between gap-4">
+                                <div class="flex-1">
+                                    <h2 class="text-2xl font-extrabold text-slate-900 mb-1">${workout.name}</h2>
+                                    <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+                                </div>
+                                <div class="shrink-0 flex items-center">
+                                    <button id="min-btn-${workoutIdx}" onclick="toggleWorkout(${workoutIdx})" class="inline-flex items-center text-sm font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-all">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+                                        Minimize
+                                    </button>
+                                </div>
                             </div>
                         `;
-                        container.innerHTML += splitHeader;
+
+                        // Open a wrapper for this workout's exercises so we can collapse/expand them
+                        container.insertAdjacentHTML('beforeend', `<div id="workout-wrapper-${workoutIdx}" class="space-y-2">${splitHeader}<div id="workout-section-${workoutIdx}" class="space-y-6">`);
 
                         // Render exercises for this split
                         workout.exercises.forEach((exercise) => {
@@ -129,22 +165,27 @@
                                 },
                                 alternative: altArray
                             };
-                            const cardHtml = generateExerciseCard(row, globalIndex);
-                            container.innerHTML += cardHtml;
+                            const cardHtml = generateExerciseCard(row, globalIndex, workoutIdx);
+                            const sectionEl = document.getElementById(`workout-section-${workoutIdx}`);
+                            if (sectionEl) sectionEl.insertAdjacentHTML('beforeend', cardHtml);
+                            else container.innerHTML += cardHtml;
                             globalIndex++;
                         });
+
+                        // Close this workout's section wrapper
+                        container.insertAdjacentHTML('beforeend', `</div></div>`);
                     });
                 } else if (data.exercises && data.exercises.length > 0) {
                     // LEGACY FORMAT: Flat exercise list with primary/alternative structure
                     data.exercises.forEach((row, index) => {
-                        const cardHtml = generateExerciseCard(row, index);
+                        const cardHtml = generateExerciseCard(row, index, 0);
                         container.innerHTML += cardHtml;
                     });
                 }
 
-                function generateExerciseCard(row, index) {
+                function generateExerciseCard(row, index, widx) {
                     return `
-                        <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 overflow-hidden relative transition-all duration-300 hover:shadow-md mb-6">
+                        <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 overflow-hidden relative transition-all duration-300 hover:shadow-md mb-6 exercise-card" data-workout-idx="${widx}">
                             
                             <div class="flex justify-between items-center px-6 py-4 border-b border-slate-100 bg-slate-50/50">
                                 <span id="indicator-${index}" class="px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-white bg-blue-600 rounded-md transition-colors">Primary</span>
