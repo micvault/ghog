@@ -3,45 +3,144 @@
   "title": "QVY - SCW1",
   "description": "Modified for QVY - Week 1-4 of SC",
   "difficulty": "Beginner",
-  "tags": ["Strong Curves", "3 Days / Week"],
+  "tags": [
+    "Strong Curves",
+    "3 Days / Week"
+  ],
   "workouts": [
     {
       "name": "Workout A (Day 1)",
       "exercises": [
-        { "name": "Barbell Glute Bridge", "detail": "3 sets of 10-20 reps", "image": "exercisepreview/Legs/barbell_glute_bridge.gif" },
-        { "name": "One-Arm Dumbbell Row", "detail": "3 sets of 8-12 reps (each side)", "image": "exercisepreview/Back/dumbbell_row.gif" },
-        { "name": "Barbell Box Squat", "detail": "3 sets of 10-20 reps", "image": "exercisepreview/Legs/barbell_box_squat.gif" },
-        { "name": "Dumbbell Incline Press", "detail": "3 sets of 8-12 reps", "image": "exercisepreview/Chest/incline_dumbbell_press.gif" },
-        { "name": "Dumbbell Romanian Deadlift", "detail": "3 sets of 10-20 reps", "image": "exercisepreview/Legs/dumbbell_romanian_deadlift.gif" },
-        { "name": "Side Lying Abduction", "detail": "1 set of 15-30 reps (each side)", "image": "exercisepreview/Legs/side_lying_abduction.webp" },
-        { "name": "RKC Plank", "detail": "1 set of 20-120 seconds", "image": "exercisepreview/Core/rkc_plank.gif" },
-        { "name": "Side Plank", "detail": "1 set of 20-60 seconds (each side)", "image": "exercisepreview/Core/side_plank.gif" }
+        {
+          "name": "Barbell Glute Bridge",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/barbell_glute_bridge.gif"
+        },
+        {
+          "name": "One-Arm Dumbbell Row",
+          "detail": "3 sets of 8-12 reps (each side)",
+          "image": "exercisepreview/Back/dumbbell_row.gif"
+        },
+        {
+          "name": "Barbell Box Squat",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/barbell_box_squat.gif"
+        },
+        {
+          "name": "Dumbbell Incline Press",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Chest/incline_dumbbell_press.gif"
+        },
+        {
+          "name": "Dumbbell Romanian Deadlift",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/dumbbell_romanian_deadlift.gif"
+        },
+        {
+          "name": "Side Lying Abduction",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Legs/side_lying_abduction.webp"
+        },
+        {
+          "name": "RKC Plank",
+          "detail": "1 set of 20-120 seconds",
+          "image": "exercisepreview/Core/rkc_plank.gif"
+        },
+        {
+          "name": "Side Plank",
+          "detail": "1 set of 20-60 seconds (each side)",
+          "image": "exercisepreview/Core/side_plank.gif"
+        }
       ]
     },
     {
       "name": "Workout B (Day 2)",
       "exercises": [
-        { "name": "Single-Leg Glute Bridge", "detail": "3 sets of 10-20 reps (each side)", "image": "exercisepreview/Legs/single_leg_glute_bridge.gif" },
-        { "name": "Front Lat Pulldown", "detail": "3 sets of 8-12 reps", "image": "exercisepreview/Back/lat_pulldown.gif" },
-        { "name": "BW/DB Step Up", "detail": "3 sets of 10-20 reps (each side)", "image": "exercisepreview/Legs/db_step_up.gif" },
-        { "name": "DB Military Press", "detail": "3 sets of 8-12 reps", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif" },
-        { "name": "Weighted 45 Back Extension", "detail": "3 sets of 10-20 reps", "image": "exercisepreview/Back/weighted_back_extension.gif" },
-        { "name": "Side Lying Clam", "detail": "1 set of 15-30 reps (each side)", "image": "exercisepreview/Legs/side_lying_clam.gif" },
-        { "name": "Crunch", "detail": "1 set of 15-30 reps", "image": "exercisepreview/Core/crunch.gif" },
-        { "name": "Side Crunch", "detail": "1 set of 15-30 reps (each side)", "image": "exercisepreview/Core/side_crunch.gif" }
+        {
+          "name": "Single-Leg Glute Bridge",
+          "detail": "3 sets of 10-20 reps (each side)",
+          "image": "exercisepreview/Legs/single_leg_glute_bridge.gif"
+        },
+        {
+          "name": "Front Lat Pulldown",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Back/lat_pulldown.gif"
+        },
+        {
+          "name": "BW/DB Step Up",
+          "detail": "3 sets of 10-20 reps (each side)",
+          "image": "exercisepreview/Legs/db_step_up.gif"
+        },
+        {
+          "name": "DB Military Press",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif"
+        },
+        {
+          "name": "Weighted 45 Back Extension",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Back/weighted_back_extension.gif"
+        },
+        {
+          "name": "Side Lying Clam",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Legs/side_lying_clam.gif"
+        },
+        {
+          "name": "Crunch",
+          "detail": "1 set of 15-30 reps",
+          "image": "exercisepreview/Core/crunch.gif"
+        },
+        {
+          "name": "Side Crunch",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Core/side_crunch.gif"
+        }
       ]
     },
     {
       "name": "Workout C (Day 3)",
       "exercises": [
-        { "name": "Glute March", "detail": "3 sets of 60 seconds (alternating legs)", "image": "exercisepreview/Legs/glute_march.gif" },
-        { "name": "Seated Row", "detail": "3 sets of 8-12 reps", "image": "exercisepreview/Back/plate_loaded_seated_row.gif" },
-        { "name": "BW/Dumb Parallel Squat", "detail": "3 sets of 10-20 reps", "image": "exercisepreview/Legs/goblet_squat.gif" },
-        { "name": "DB Incline Press", "detail": "3 sets of 8-12 reps", "image": "exercisepreview/Chest/incline_dumbbell_press.gif" },
-        { "name": "BW/Dumb Single Leg RDL", "detail": "3 sets of 10-20 reps (each side)", "image": "exercisepreview/Legs/db_sl_dead.gif" },
-        { "name": "X-Band Walk", "detail": "1 set of 10-20 steps (each side)", "image": "exercisepreview/Legs/x_band_walk.gif" },
-        { "name": "RKC Plank", "detail": "1 set of 10-30 seconds", "image": "exercisepreview/Core/rkc_plank.gif" },
-        { "name": "Rope Horizontal Chop", "detail": "1 set of 10 reps (each side)", "image": "" }
+        {
+          "name": "Glute March",
+          "detail": "3 sets of 60 seconds (alternating legs)",
+          "image": "exercisepreview/Legs/glute_march.gif"
+        },
+        {
+          "name": "Seated Row",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Back/plate_loaded_seated_row.gif"
+        },
+        {
+          "name": "BW/Dumb Parallel Squat",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/goblet_squat.gif"
+        },
+        {
+          "name": "DB Incline Press",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Chest/incline_dumbbell_press.gif"
+        },
+        {
+          "name": "BW/Dumb Single Leg RDL",
+          "detail": "3 sets of 10-20 reps (each side)",
+          "image": "exercisepreview/Legs/db_sl_dead.gif"
+        },
+        {
+          "name": "X-Band Walk",
+          "detail": "1 set of 10-20 steps (each side)",
+          "image": "exercisepreview/Legs/x_band_walk.gif"
+        },
+        {
+          "name": "RKC Plank",
+          "detail": "1 set of 10-30 seconds",
+          "image": "exercisepreview/Core/rkc_plank.gif"
+        },
+        {
+          "name": "Rope Horizontal Chop",
+          "detail": "1 set of 10 reps (each side)",
+          "image": "exercisepreview/Legs/horizontal_leg_press.gif"
+        }
       ]
     }
   ]
