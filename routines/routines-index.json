@@ -1,7 +1,8 @@
 [
-  { "file": "routines/ppl3d.json", "category": "Templates (From Sources)" },
   { "file": "routines/twelve-week-beginners.json", "category": "Templates (From Sources)" },
   { "file": "routines/qvy-scw2.json", "category": "Personalized Routines" },
+  { "file": "routines/p14-ulrppl.json", "category": "Templates (From Sources)" },
   { "file": "routines/cb-uprppl.json", "category": "Personalized Routines" },
+  { "file": "routines/p7-ulrul.json", "category": "Templates (From Sources)" },
   { "file": "routines/qvy-scw1.json", "category": "Archived - PRs" }
 ]
