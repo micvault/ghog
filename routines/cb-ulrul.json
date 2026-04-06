@@ -1,6 +1,6 @@
 {
   "id": "p7-ulrul",
-  "title": "TML - ULRUL (4) #P7",
+  "title": "C&B - ULRUL Modified",
   "description": "Upper/Lower Split 4x/Week — Intermediate/Advanced program to build muscle and gain strength.",
   "difficulty": "Intermediate/Advanced",
   "tags": ["The Muscle Ladder","Strength","Hypertrophy","4 Days/Week","WIP"],
@@ -31,12 +31,12 @@
       "name": "Upper #2",
       "exercises": [
         { "name": "Lat Pulldown", "detail": "3 Working Sets — 10–12 Reps (1–2 Warm-up Sets)", "image": "exercisepreview/Back/lat_pulldown.gif", "alternative": [ { "name": "Pull-Up (Optional Assistance)", "image": "exercisepreview/Back/pull_up.gif" }, { "name": "Chin-Up", "image": "exercisepreview/Back/chin_up.gif" } ] },
-        { "name": "Overhead Barbell Press", "detail": "3 Working Sets — 6–8 Reps (2–3 Warm-up Sets)", "image": "exercisepreview/Shoulder/overhead_barbell_press.gif", "alternative": [ { "name": "Dumbbell Shoulder Press (Standing)", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif" }, { "name": "Dumbbell Shoulder Press (Seated)", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif" } ] },
+        { "name": "Incline Barbell Press", "detail": "3 working sets — 10–12 reps (1–2 warm-up sets)", "image": "exercisepreview/Chest/incline_barbell_bench_press.gif", "alternative": [ { "name": "Dip", "image": "exercisepreview/Chest/chest_press.gif" }, { "name": "Bench Press", "image": "exercisepreview/Chest/barbell_bench_press.gif" }, { "name": "DB Flat BP", "image": "exercisepreview/Chest/dumbbell_press.gif" } ] },
         { "name": "Dumbbell Row", "detail": "3 Working Sets — 10–12 Reps (1–2 Warm-up Sets)", "image": "exercisepreview/Back/dumbbell_row.gif", "alternative": [ { "name": "Chest-Supported T-Bar Row", "image": "exercisepreview/Back/plate_loaded_seated_row.gif" }, { "name": "Barbell Row", "image": "exercisepreview/Back/barbell_row.gif" } ] },
-        { "name": "Flat Dumbbell Press", "detail": "3 Working Sets — 8–10 Reps (1–2 Warm-up Sets)", "image": "exercisepreview/Chest/dumbbell_press.gif", "alternative": [ { "name": "Dip", "image": "exercisepreview/Chest/chest_press.gif" }, { "name": "Bench Press", "image": "exercisepreview/Chest/barbell_bench_press.gif" } ] },
+        { "name": "Overhead Barbell Press", "detail": "3 Working Sets — 6–8 Reps (2–3 Warm-up Sets)", "image": "exercisepreview/Shoulder/overhead_barbell_press.gif", "alternative": [ { "name": "Dumbbell Shoulder Press (Standing)", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif" }, { "name": "Dumbbell Shoulder Press (Seated)", "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif" } ] },
         { "name": "Reverse Pec Deck", "detail": "3 Working Sets — 10–12 Reps (0–1 Warm-up Sets)", "image": "exercisepreview/Shoulder/rear_delt_fly.gif", "alternative": [ { "name": "Rope Facepull", "image": "exercisepreview/Shoulder/face_pull.gif" }, { "name": "Reverse Cable Fly", "image": "exercisepreview/Shoulder/rear_delt_fly_cable.gif" } ] },
         { "name": "Superset: Triceps Pressdown", "detail": "3 Working Sets — 10–12 Reps", "image": "exercisepreview/Tricep/pushdown.gif", "alternative": [ { "name": "Triceps Kickback (Cable)", "image": "exercisepreview/Tricep/dumbbell_kickback.gif" }, { "name": "EZ-Bar Skullcrusher", "image": "exercisepreview/Tricep/barbell_skull_crusher.webp" } ] },
-        { "name": "Superset: Bayesian Cable Curl", "detail": "3 Working Sets — 10–12 Reps", "image": "exercisepreview/Bicep/bayesian_cable_curl.gif", "alternative": [ { "name": "Incline Dumbbell Curl", "image": "exercisepreview/Bicep/double_arm_dumbbell_curl.gif" }, { "name": "Preacher Curl", "image": "exercisepreview/Bicep/preacher_curl.gif" } ] }
+        { "name": "Superset: Preacher Curl", "detail": "3 Working Sets — 12–15 Reps", "image": "exercisepreview/Bicep/preacher_curl.gif", "alternative": [ { "name": "EZ-Bar Biceps Curl", "image": "exercisepreview/Bicep/z_bar_curl.gif" }, { "name": "Dumbbell Biceps Curl", "image": "exercisepreview/Bicep/double_arm_dumbbell_curl.gif" } ] }
       ]
     },
     {

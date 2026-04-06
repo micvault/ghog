@@ -1,0 +1,168 @@
+{
+  "id": "qvy-scw3",
+  "title": "QVY - SCW3",
+  "description": "Modified for QVY - Week 9-12 of SC",
+  "difficulty": "Beginner",
+  "tags": ["Strong Curves", "4 Days / Week"],
+  "workouts": [
+    {
+      "name": "Workout A (Weeks 9-12, at least twice per week)",
+      "exercises": [
+        {
+          "name": "Barbell Hip Thrust",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/barbell_hip_thrust.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Dumbbell Bent Over Row",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Back/bent_over_dumbbell_row.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Barbell Box Squat",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/barbell_box_squat.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Push-Up",
+          "detail": "3 sets of 3-10 reps",
+          "image": "exercisepreview/Chest/push_up.gif",
+          "alternative": { "name": "Barbell Bench Press", "detail": "", "image": "exercisepreview/Chest/barbell_bench_press.gif" }
+        },
+        {
+          "name": "Barbell American Deadlift",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/rdl_barbell.gif",
+          "alternative": { "name": "Barbell Romanian Deadlift", "detail": "", "image": "exercisepreview/Legs/barbell_romanian_deadlift.gif" }
+        },
+        {
+          "name": "Side Lying Abduction",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Legs/side_lying_abduction.webp",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Crunch",
+          "detail": "1 set of 15-30 reps",
+          "image": "exercisepreview/Core/crunch.gif",
+          "alternative": { "name": "Dumbbell Swiss Ball Crunch", "detail": "", "image": "" }
+        },
+        {
+          "name": "Side Crunch",
+          "detail": "1 set of 10-15 reps (each side)",
+          "image": "exercisepreview/Core/side_crunch.gif",
+          "alternative": { "name": "Half-Kneeling Cable Anti-Rotation Press", "detail": "", "image": "" }
+        }
+      ]
+    },
+    {
+      "name": "Workout B (Weeks 9-12, at least once per week)",
+      "exercises": [
+        {
+          "name": "Bodyweight Single-Leg Hip Thrust (Shoulders Elevated)",
+          "detail": "3 sets of 10-20 reps (each side)",
+          "image": "exercisepreview/Legs/single_leg_glute_bridge.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Pull-Up",
+          "detail": "3 sets of 12-15 reps",
+          "image": "exercisepreview/Back/pull_up.gif",
+          "alternative": { "name": "Chin-Up (or Band Assisted Chin-Up)", "detail": "3 sets of 1-3", "image": "exercisepreview/Back/chin_up.gif" }
+        },
+        {
+          "name": "Bodyweight Bulgarian Split Squat",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/dumbbell_lunge.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Shoulder Press (Dumbbell or Barbell)",
+          "detail": "3 sets of 8-12 reps",
+          "image": "exercisepreview/Shoulder/dumbbell_shoulder_press.gif",
+          "alternative": { "name": "Single-Arm Dumbbell Military Press", "detail": "", "image": "" }
+        },
+        {
+          "name": "Kettlebell Swing ",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/russian_kettlebell_swing.webp",
+          "alternative": { "name": "Barbell Good Morning", "detail": "", "image": "" }
+        },
+        {
+          "name": "X-Band Walk (Moderate Tension)",
+          "detail": "1 set of 15-30 steps (each side)",
+          "image": "exercisepreview/Legs/x_band_walk.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Feet Elevated Plank",
+          "detail": "1 set of 60-120 sec",
+          "image": "exercisepreview/Core/plank.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Dumbbell Side Bend",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Core/dumbbell-side-bend.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        }
+      ]
+    },
+    {
+      "name": "Workout C (Weeks 9-12, at least once per week)",
+      "exercises": [
+        {
+          "name": "Barbell Hip Thrust (Pause Rep Method)",
+          "detail": "3 sets of 8-15 reps (3 second pause at top)",
+          "image": "exercisepreview/Legs/barbell_hip_thrust.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Dumbbell Chest Supported Row",
+          "detail": "3 sets of 8-10 reps",
+          "image": "exercisepreview/Back/supported_t_bar_row.gif",
+          "alternative": { "name": "Cable Wide Grip Row", "detail": "", "image": "exercisepreview/Back/cable_wide_grip_row.gif" }
+        },
+        {
+          "name": "Barbell Parallel Squat",
+          "detail": "3 sets of 10-20 reps",
+          "image": "exercisepreview/Legs/bb_squat.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Barbell Incline Press",
+          "detail": "3 sets of 3-10 reps",
+          "image": "exercisepreview/Chest/incline_barbell_bench_press.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Bodyweight Back Extension",
+          "detail": "3 sets of 10-30 reps",
+          "image": "exercisepreview/Back/weighted_back_extension.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Side Lying Clam",
+          "detail": "1 set of 15-30 reps (each side)",
+          "image": "exercisepreview/Legs/side_lying_clam.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Hanging Bent-Leg Raise",
+          "detail": "1 set of 10-20 reps",
+          "image": "exercisepreview/Core/roman_chair_leg_raise.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        },
+        {
+          "name": "Rope Horizontal Chop",
+          "detail": "1 set of 10-15 reps (each side)",
+          "image": "exercisepreview/Core/cable_twist.gif",
+          "alternative": { "name": "", "detail": "", "image": "" }
+        }
+      ]
+    }
+  ]
+}

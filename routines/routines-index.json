@@ -1,8 +1,10 @@
 [
   { "file": "routines/twelve-week-beginners.json", "category": "Templates (From Sources)" },
-  { "file": "routines/qvy-scw2.json", "category": "Personalized Routines" },
+  { "file": "routines/qvy-scw2.json", "category": "Archived - PRs" },
   { "file": "routines/p14-ulrppl.json", "category": "Templates (From Sources)" },
-  { "file": "routines/cb-uprppl.json", "category": "Personalized Routines" },
+  { "file": "routines/cb-uprppl.json", "category": "Archived - PRs" },
   { "file": "routines/p7-ulrul.json", "category": "Templates (From Sources)" },
-  { "file": "routines/qvy-scw1.json", "category": "Archived - PRs" }
+  { "file": "routines/qvy-scw1.json", "category": "Archived - PRs" },
+  { "file": "routines/qvy-scw3.json", "category": "Personalized Routines" },
+  { "file": "routines/cb-ulrul.json", "category": "Personalized Routines" }
 ]
